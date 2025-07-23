@@ -1,16 +1,15 @@
-You (admin) create and give Ajay a ready ajay-kubeconfig.yaml.
+# You (admin) create and give Sandeep a ready sandeep-kubeconfig.yaml file.
 
-Ajay does:
+# Sandeep runs the following commands:
+
 mkdir -p ~/.kube
-cp ajay-kubeconfig.yaml ~/.kube/config
+cp sandeep-kubeconfig.yaml ~/.kube/config
 
+# If Sandeep needs to work with multiple kubeconfig files for multiple clusters,
+# it’s better to keep sandeep-kubeconfig.yaml separate and set:
 
+export KUBECONFIG=/path/to/sandeep-kubeconfig.yaml
 
+# Or use kubectl commands with the kubeconfig file explicitly:
 
-If Ajay Needs Multiple Clusters?
-Then it’s better to keep ajay-kubeconfig.yaml separate and set:
-
-export KUBECONFIG=/path/to/ajay-kubeconfig.yaml
-or:
-
-kubectl --kubeconfig=/path/to/ajay-kubeconfig.yaml get pods
+kubectl --kubeconfig=/path/to/sandeep-kubeconfig.yaml get pods
